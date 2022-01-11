@@ -1,0 +1,11 @@
+#Org and project config files
+/.sfdx
+/config
+/manifest
+
+#LWC config files
+#**/jsconfig.json
+#**/.eslintrc.json
+
+# LWC Jest
+#**/__tests__/**
