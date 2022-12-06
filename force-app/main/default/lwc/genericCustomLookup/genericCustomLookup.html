@@ -3,11 +3,10 @@
         <template if:true={lookupLabel}>
             <label class="slds-form-element__label" for="combobox-id-2">{lookupLabel}</label>
         </template>
-        <div class="slds-form-element__control">
-            <div class="slds-combobox_container">
-                <div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open"
-                    aria-expanded="true" aria-haspopup="listbox" role="combobox">
-                    <template if:true={selectedRecordName}>
+<div class="slds-form-element__control">
+    <div class="slds-combobox_container">
+        <div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open" aria-expanded="true" aria-haspopup="listbox" role="combobox">
+            <template if:true={selectedRecordName}>
                         <div data-key="pilldiv"
                             class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_left-right"
                             role="none">
@@ -35,7 +34,7 @@
                         <div if:true={hasError} class="slds-form-element__help" >{errorMessage}</div>
                     </template>
 
-                    <template if:false={selectedRecordName}>
+            <template if:false={selectedRecordName}>
                         <div data-key="searchdiv"
                             class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right"
                             role="none">
@@ -61,7 +60,7 @@
                                     <template if:true={message}>
                                          {message}
                                     </template>
-                                    <template for:each={recordsList} for:item="record" for:index="index">
+            <template for:each={recordsList} for:item="record" for:index="index">
                                         <li id={record.Id} key={record.Id} onclick={onRecordSelection}
                                             role="presentation" class="slds-listbox__item">
                                             <div data-key={record.Id} data-name={record.Name} data-index={index}
@@ -73,7 +72,7 @@
                                                         </lightning-icon>
                                                     </span>
                                                 </span>
-                                                <span class="slds-media__body">
+                                                <span class="slds-media__body" style="margin: auto;">
                                                     <span data-key={record.Id} data-name={record.Name} data-index={index}
                                                         class="slds-listbox__option-text_entity">{record.Name}
                                                     </span>
@@ -81,12 +80,12 @@
                                             </div>
                                         </li>
                                     </template>
-                                </ul>
-                            </div>
-                        </template>
-                    </template>
-                </div>
-            </div>
+            </ul>
         </div>
+        </template>
+        </template>
     </div>
+</div>
+</div>
+</div>
 </template>

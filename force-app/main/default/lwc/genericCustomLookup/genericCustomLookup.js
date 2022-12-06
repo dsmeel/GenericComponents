@@ -9,7 +9,7 @@ export default class GenericCustomLookup extends LightningElement {
     @api selectedRecordName;
     @api selectedRecordId;
     @api objectApiName;
-    @api iconName;
+    @api iconName = "standard:user";
     @api lookupLabel;
     @api additionalFilters = '';
     @api additionalFields = [];
@@ -19,7 +19,7 @@ export default class GenericCustomLookup extends LightningElement {
     @api errorMessage = "";
 
 
-    get formElementClass(){
+    get formElementClass() {
         return "slds-form-element " + (this.hasError ? "slds-has-error" : "");
     }
 
@@ -41,7 +41,7 @@ export default class GenericCustomLookup extends LightningElement {
     handleKeyChange(event) {
         const searchKey = event.target.value;
         this.searchKey = searchKey;
-        if(this.searchKey.length > 3){
+        if (this.searchKey.length > 3) {
             this.getLookupResult();
         }
         this.hasError = false;
@@ -59,12 +59,12 @@ export default class GenericCustomLookup extends LightningElement {
     getLookupResult() {
         console.log('additional Filter:::::', this.additionalFilters);
         searchRecords({
-            searchKey: this.searchKey,
-            additionalFields: this.additionalFields,
-            objectName: this.objectApiName,
-            additionalFilters: this.additionalFilters,
-            recordLimit: this.recordLimit
-        })
+                searchKey: this.searchKey,
+                additionalFields: this.additionalFields,
+                objectName: this.objectApiName,
+                additionalFilters: this.additionalFilters,
+                recordLimit: this.recordLimit
+            })
             .then((result) => {
                 if (result.length === 0) {
                     this.recordsList = [];
@@ -83,10 +83,11 @@ export default class GenericCustomLookup extends LightningElement {
 
     onSeletedRecordUpdate() {
         const passEventr = new CustomEvent('recordselection', {
-            detail: {   selectedRecordId: this.selectedRecordId, 
-                        selectedRecordName: this.selectedRecordName,
-                        selectedRecord: this.selectedRecord
-                    }
+            detail: {
+                selectedRecordId: this.selectedRecordId,
+                selectedRecordName: this.selectedRecordName,
+                selectedRecord: this.selectedRecord
+            }
         });
         this.dispatchEvent(passEventr);
     }
